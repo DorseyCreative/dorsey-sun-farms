@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Farm Investment Journey - 25 Years to Financial Freedom</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-navy: #0a0e27;
+            --midnight: #1a1f3a;
+            --royal-blue: #2563eb;
+            --electric-blue: #3b82f6;
+            --gold: #fbbf24;
+            --amber: #f59e0b;
+            --emerald: #10b981;
+            --coral: #f97316;
+            --crimson: #ef4444;
+            --platinum: #f8fafc;
+            --pearl: #ffffff;
+            --charcoal: #1e293b;
+            --slate: #64748b;
+            --mist: #94a3b8;
+            --whisper: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: var(--deep-navy);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--midnight);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--gold), var(--amber));
+            border-radius: 10px;
+        }
+
+        /* Progress Tracker - Fixed Bottom */
+        .progress-tracker {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(30px);
+            border-top: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 25px 30px;
+            box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .progress-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--platinum);
+            letter-spacing: 0.5px;
+        }
+
+        .progress-year {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold), var(--amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .progress-bar-container {
+            position: relative;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--royal-blue) 0%, var(--gold) 50%, var(--emerald) 100%);
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+        }
+
+        .progress-milestones {
+            position: absolute;
+            top: -5px;
+            left: 0;
+            right: 0;
+            height: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8px;
+        }
+
+        .milestone {
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .milestone::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, var(--gold), transparent);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .milestone.completed {
+            background: var(--emerald);
+            border-color: var(--emerald);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .milestone.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            transform: scale(1.4);
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+        }
+
+        .milestone.active::before {
+            width: 30px;
+            height: 30px;
+            opacity: 0.3;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--mist);
+            font-weight: 500;
+        }
+
+        /* Data Bubble */
+        .data-bubble {
+            position: fixed;
+            top: 15%;
+            right: 40px;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.95), rgba(26, 31, 58, 0.95));
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 30px;
+            padding: 35px 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            min-width: 350px;
+            max-width: 400px;
+            opacity: 0;
+            transform: translateX(150px) rotateY(15deg);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+        }
+
+        .data-bubble.visible {
+            opacity: 1;
+            transform: translateX(0) rotateY(0deg);
+        }
+
+        .bubble-header {
+            text-align: center;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        .bubble-year {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold), var(--amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .bubble-phase {
+            font-size: 0.95rem;
+            color: var(--mist);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .bubble-metrics {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+
+        .bubble-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: var(--platinum);
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-weight: 700;
+            color: var(--pearl);
+            font-size: 1.1rem;
+        }
+
+        .metric-value.positive {
+            color: var(--emerald);
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .metric-value.negative {
+            color: var(--coral);
+        }
+
+        .bubble-insight {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.1));
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .insight-text {
+            font-size: 0.95rem;
+            color: var(--platinum);
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        /* Sections with Gradient Overlays */
+        .section {
+            min-height: 100vh;
+            padding: 140px 0;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 1s ease;
+            pointer-events: none;
+        }
+
+        .section.visible::before {
+            opacity: 1;
+        }
+
+        .section.hero {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--midnight) 50%, var(--royal-blue) 100%);
+            color: var(--platinum);
+            position: relative;
+        }
+
+        .section.hero::before {
+            background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.4) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(251, 191, 36, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+        }
+
+        .section.protected {
+            background: linear-gradient(135deg, var(--platinum) 0%, #f1f5f9 100%);
+        }
+
+        .section.protected::before {
+            background: radial-gradient(circle at 70% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 30% 80%, rgba(251, 191, 36, 0.1) 0%, transparent 60%);
+        }
+
+        .section.building {
+            background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 100%);
+            color: var(--platinum);
+        }
+
+        .section.building::before {
+            background: radial-gradient(circle at 30% 60%, rgba(37, 99, 235, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 30%, rgba(245, 158, 11, 0.2) 0%, transparent 60%);
+        }
+
+        .section.breakeven {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .section.breakeven::before {
+            background: radial-gradient(circle at 60% 40%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 70%, rgba(251, 191, 36, 0.15) 0%, transparent 60%);
+        }
+
+        .section.profit {
+            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--electric-blue) 100%);
+            color: var(--platinum);
+        }
+
+        .section.profit::before {
+            background: radial-gradient(circle at 40% 30%, rgba(251, 191, 36, 0.4) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.3) 0%, transparent 60%);
+        }
+
+        .section.retirement {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+        }
+
+        .section.retirement::before {
+            background: radial-gradient(circle at 50% 20%, rgba(251, 191, 36, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 60%, rgba(245, 158, 11, 0.2) 0%, transparent 60%);
+        }
+
+        .section.cta {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--charcoal) 100%);
+            color: var(--platinum);
+        }
+
+        .section.cta::before {
+            background: radial-gradient(circle at 30% 50%, rgba(251, 191, 36, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(37, 99, 235, 0.2) 0%, transparent 60%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Floating Content Cards */
+        .floating-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        .floating-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .floating-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(16, 185, 129, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .floating-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero-content {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 10vw, 7rem);
+            font-weight: 900;
+            margin-bottom: 30px;
+            line-height: 0.9;
+            background: linear-gradient(135deg, var(--platinum), var(--gold), var(--emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            margin-bottom: 60px;
+            opacity: 0.95;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-promise {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 35px;
+            padding: 60px 50px;
+            margin-top: 80px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-promise::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(251, 191, 36, 0.1), transparent);
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .promise-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .promise-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+            background: linear-gradient(135deg, var(--gold), var(--amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .promise-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* Phase Sections */
+        .phase-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .phase-badge {
+            background: linear-gradient(135deg, var(--gold), var(--amber));
+            color: var(--deep-navy);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+        }
+
+        .phase-title {
+            font-size: clamp(3rem, 7vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--charcoal), var(--slate));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section.building .phase-title,
+        .section.profit .phase-title,
+        .section.cta .phase-title {
+            background: linear-gradient(135deg, var(--platinum), var(--mist));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .phase-emotion {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 60px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.8;
+        }
+
+        /* Content Layouts */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            margin: 80px 0;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        .content-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .content-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(16, 185, 129, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .content-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+            background: linear-gradient(135deg, var(--gold), var(--amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section.protected .card-title,
+        .section.breakeven .card-title,
+        .section.retirement .card-title {
+            background: linear-gradient(135deg, var(--charcoal), var(--slate));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-text {
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .card-highlight {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(251, 191, 36, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            padding: 28px;
+            margin-top: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .card-highlight:hover::before {
+            transform: translateX(100%);
+        }
+
+        .highlight-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .highlight-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--emerald);
+            margin-bottom: 12px;
+        }
+
+        .highlight-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        /* Operations Panel */
+        .operations-panel {
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.95), rgba(26, 31, 58, 0.95));
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 35px;
+            padding: 70px 60px;
+            margin: 100px 0;
+            position: relative;
+            overflow: hidden;
+            color: var(--platinum);
+        }
+
+        .operations-panel::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: conic-gradient(from 0deg, transparent, rgba(251, 191, 36, 0.1), transparent);
+            animation: rotate 12s linear infinite;
+        }
+
+        .operations-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .operations-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--gold), var(--emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .operations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .operation-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 40px 35px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .operation-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(16, 185, 129, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .operation-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .operation-item:hover::before {
+            opacity: 1;
+        }
+
+        .operation-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .operation-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .operation-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .operation-detail {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .operation-cost {
+            background: rgba(251, 191, 36, 0.2);
+            border-radius: 15px;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* CTA Section */
+        .cta-content {
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: clamp(3.5rem, 7vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--gold), var(--emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-description {
+            font-size: 1.4rem;
+            margin-bottom: 70px;
+            opacity: 0.95;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 35px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--gold), var(--amber));
+            color: var(--deep-navy);
+            padding: 22px 45px;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(251, 191, 36, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--platinum);
+            border: 2px solid var(--gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .progress-tracker {
+                padding: 20px;
+            }
+
+            .data-bubble {
+                position: static;
+                transform: none;
+                opacity: 1;
+                margin: 20px;
+                right: auto;
+                top: auto;
+                min-width: auto;
+                max-width: none;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .operations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+            }
+
+            .progress-milestones {
+                display: none;
+            }
+
+            .section {
+                padding: 100px 0;
+            }
+
+            .floating-card,
+            .content-card,
+            .operations-panel {
+                padding: 40px 30px;
+            }
+        }
+
+        /* Entrance Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Tracker -->
+    <div class="progress-tracker">
+        <div class="progress-header">
+            <span class="progress-title">Your Solar Investment Journey</span>
+            <span class="progress-year">Getting Started</span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-fill"></div>
+            <div class="progress-milestones">
+                <div class="milestone active" data-year="1" title="Years 1-6: Protected Growth"></div>
+                <div class="milestone" data-year="7" title="Years 7-17: Building Equity"></div>
+                <div class="milestone" data-year="18" title="Years 18-20: Break-Even"></div>
+                <div class="milestone" data-year="21" title="Years 21-25: Pure Profit"></div>
+                <div class="milestone" data-year="25" title="Your Golden Years"></div>
+            </div>
+        </div>
+        <div class="progress-info">
+            <span>Building Your Energy Independence</span>
+            <span>Creating Retirement Security</span>
+        </div>
+    </div>
+
+    <!-- Data Bubble -->
+    <div class="data-bubble" id="dataBubble">
+        <div class="bubble-header">
+            <div class="bubble-year">Years 1-6</div>
+            <div class="bubble-phase">Protected Growth</div>
+        </div>
+        <div class="bubble-metrics">
+            <div class="bubble-metric">
+                <span class="metric-label">Ownership Built:</span>
+                <span class="metric-value positive">30%</span>
+            </div>
+            <div class="bubble-metric">
+                <span class="metric-label">Equity Value:</span>
+                <span class="metric-value positive">$360K</span>
+            </div>
+            <div class="bubble-metric">
+                <span class="metric-label">Annual Revenue:</span>
+                <span class="metric-value">$55K</span>
+            </div>
+            <div class="bubble-metric">
+                <span class="metric-label">Out of Pocket:</span>
+                <span class="metric-value positive">$0</span>
+            </div>
+            <div class="bubble-metric">
+                <span class="metric-label">Protection:</span>
+                <span class="metric-value">Tax Credits</span>
+            </div>
+        </div>
+        <div class="bubble-insight">
+            <div class="insight-text">Government incentives cover your payment gaps while you build substantial equity. This is wealth creation with training wheels.</div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="section hero visible" data-section="hero">
+        <div class="container">
+            <div class="hero-content fade-in visible">
+                <h1 class="hero-title">Own Your Energy Future</h1>
+                <p class="hero-subtitle">25 years from debt to $43,000 annual income</p>
+                
+                <div class="hero-promise">
+                    <div class="promise-content">
+                        <h3 class="promise-title">A Different Kind of Investment</h3>
+                        <p class="promise-text">This isn't about saving the planet—it's about building a reliable income stream for your retirement. You'll own infrastructure that generates electricity, pays down debt with government support, and eventually produces steady income when you need it most.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Years 1-6: Protected Phase -->
+    <section class="section protected" data-section="protected" data-year="1-6">
+        <div class="container">
+            <div class="phase-header fade-in">
+                <div class="phase-badge">Years 1-6</div>
+                <h2 class="phase-title">Protected Growth Phase</h2>
+                <p class="phase-emotion">"This feels too good to be true... but I'll take it."</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card slide-in-left">
+                    <div class="card-content">
+                        <h3 class="card-title">Your Experience</h3>
+                        <p class="card-text">Your solar farm is generating $55,000 annually, but your loan payment is $107,000. In normal circumstances, this $52,000 gap would cause stress. But you've monetized $300,000+ in tax credits that cover every penny of the shortfall.</p>
+                        <p class="card-text">You receive quarterly statements showing growing equity with zero out-of-pocket expenses. It's like having someone else pay your mortgage while you build ownership.</p>
+                        <div class="card-highlight">
+                            <div class="highlight-content">
+                                <div class="highlight-title">Wealth Building on Autopilot</div>
+                                <div class="highlight-text">By Year 6, you'll own 30% of a $1.2M solar farm—that's $360,000 in equity built entirely through government incentives protecting your investment.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card slide-in-right">
+                    <div class="card-content">
+                        <h3 class="card-title">Professional Management</h3>
+                        <p class="card-text">You don't operate this farm—qualified professionals do. Your involvement is minimal: reviewing quarterly reports, annual inspections, and watching your equity grow through online dashboards.</p>
+                        <p class="card-text">The operations are straightforward and regulated. Professional teams handle maintenance, compliance, and monitoring while you focus on your primary career or other investments.</p>
+                        <div class="card-highlight">
+                            <div class="highlight-content">
+                                <div class="highlight-title">Hands-Off Ownership</div>
+                                <div class="highlight-text">Licensed professionals handle all technical operations, safety inspections, and regulatory compliance. Your job is simply to own the asset and collect the benefits.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="operations-panel fade-in">
+                <div class="operations-content">
+                    <h3 class="operations-title">🔧 Professional Operations</h3>
+                    <div class="operations-grid">
+                        <div class="operation-item">
+                            <div class="operation-content">
+                                <span class="operation-icon">🔍</span>
+                                <div class="operation-title">Monthly Inspections</div>
+                                <div class="operation-detail">Certified technicians check electrical connections, panel condition, and performance metrics</div>
+                                <div class="operation-cost">Included in $12K/year O&M</div>
+                            </div>
+                        </div>
+                        <div class="operation-item">
+                            <div class="operation-content">
+                                <span class="operation-icon">🧹</span>
+                                <div class="operation-title">Maintenance & Cleaning</div>
+                                <div class="operation-detail">Quarterly professional cleaning and equipment maintenance maintains peak efficiency</div>
+                                <div class="operation-cost">$3,000/year materials</div>
+                            </div>
+                        </div>
+                        <div class="operation-item">
+                            <div class="operation-content">
+                                <span class="operation-icon">📊</span>
+                                <div class="operation-title">24/7 Monitoring</div>
+                                <div class="operation-detail">Digital systems track performance with instant alerts for any issues or equipment concerns</div>
+                                <div class="operation-cost">$1,500/year software</div>
+                            </div>
+                        </div>
+                        <div class="operation-item">
+                            <div class="operation-content">
+                                <span class="operation-icon">⚡</span>
+                                <div class="operation-title">Safety & Compliance</div>
+                                <div class="operation-detail">Annual electrical inspections required by Wisconsin PSC, performed by licensed engineers</div>
+                                <div class="operation-cost">$2,500/year compliance</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 30px; opacity: 0.9; font-size: 1.1rem;">
+                        <strong>Total Operations Cost: ~$19,000/year</strong> - All managed professionally while you focus on other priorities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Years 7-17: Building Phase -->
+    <section class="section building" data-section="building" data-year="7-17">
+        <div class="container">
+            <div class="phase-header fade-in">
+                <div class="phase-badge">Years 7-17</div>
+                <h2 class="phase-title">Building Equity Phase</h2>
+                <p class="phase-emotion">"Some months are challenging, but I can see real progress."</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card slide-in-left">
+                    <div class="card-content">
+                        <h3 class="card-title">Financial Reality</h3>
+                        <p class="card-text">Tax credit protection ends around Year 6. Now you're contributing roughly $52,000 annually ($107K payment minus $55K revenue). This feels significant—like a second mortgage payment.</p>
+                        <p class="card-text">But here's what's actually happening: every dollar is building your ownership stake. By Year 10, you own 55% of your solar farm. By Year 15, you own 85%. You're essentially buying yourself out.</p>
+                        <div class="card-highlight">
+                            <div class="highlight-content">
+                                <div class="highlight-title">Forced Wealth Building</div>
+                                <div class="highlight-text">Think of this as a disciplined savings plan backed by real infrastructure. Each payment increases your ownership in an appreciating asset that generates steady income.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card slide-in-right">
+                    <div class="card-content">
+                        <h3 class="card-title">Managing Expectations</h3>
+                        <p class="card-text">This is the patience phase. Some months you'll question the decision, especially during economic stress or unexpected expenses. Other months you'll feel proud watching your equity statements grow.</p>
+                        <p class="card-text">Your solar farm operates efficiently with minimal involvement from you. The professional team handles all operations while you track progress through clear, quarterly reports.</p>
+                        <div class="card-highlight">
+                            <div class="highlight-content">
+                                <div class="highlight-title">Long-Term Perspective</div>
+                                <div class="highlight-text">By Year 17, you'll own 90%+ of valuable infrastructure. The hardest part is maintaining patience during the building years while equity accumulates.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Years 18-20: Break-Even -->
+    <section class="section breakeven" data-section="breakeven" data-year="18-20">
+        <div class="container">
+            <div class="phase-header fade-in">
+                <div class="phase-badge">Years 18-20</div>
+                <h2 class="phase-title">Break-Even Achievement</h2>
+                <p class="phase-emotion">"Finally! The math is working in my favor."</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card slide-in-left">
+                    <div class="card-content">
+                        <h3 class="card-title">The Turning Point</h3>
+                        <p class="card-text">By Year 18, you own 84% of your solar farm. That means 84% of the $55,000 annual revenue belongs to you—$46,200. Your remaining interest cost is only $18,500.</p>
+                        <p class="card-text">For the first time, your ownership share generates more money than you're paying in interest. You've reached true operational break-even. The investment finally works as designed.</p>
+                        <div class="card-highlight">
+                            <div class="highlight-content">
+                                <div class="highlight-title">Vindication Moment</div>
+                                <div class="highlight-text">All those years of patience and payments finally pay off. Your ownership revenue exceeds borrowing costs, proving the long-term strategy was sound all along.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card slide-in-right">
+                    <div class="card-content">
+                        <h3 class="card-title">Approaching Freedom</h3>
+                        <p class="card-text">Year 20 arrives and your loan is completely paid off. You now own 100% of a debt-free solar farm generating $55,000 annually in revenue—minus about $12,000 in operating costs.</p>
+                        <p class="card-text">This is the moment everything changes. No more loan payments, no more financial stress. Just steady income from infrastructure you own outright.</p>
+                        <div class="card-highlight">
+                            <div class="highlight-content">
+                                <div class="highlight-title">Asset Ownership</div>
+                                <div class="highlight-text">Your debt-free solar farm is now worth $1.8-2.2 million as an income-generating asset. You can keep it for income or sell it for capital—your choice.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Years 21-25: Pure Profit -->
+    <section class="section profit" data-section="profit" data-year="21-25">
+        <div class="container">
+            <div class="phase-header fade-in">
+                <div class="phase-badge">Years 21-25</div>
+                <h2 class="phase-title">Pure Profit Phase</h2>
+                <p class="phase-emotion">"I own a reliable income generator powered by sunshine."</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card slide-in-left">
+                    <div class="card-content">
+                        <h3 class="card-title">Debt-Free Income</h3>
+                        <p class="card-text">$55,000 annual revenue minus $12,000 operations costs = $43,000 pure profit flowing directly to you each year. No loan payments, no debt service, no financial stress.</p>
+                        <p class="card-text">Over these 5 years, you'll generate $215,000 in pure profit from an asset that continues appreciating. This is what true passive income looks like.</p>
+                        <div class="card-highlight">
+                            <div class="highlight-content">
+                                <div class="highlight-title">Retirement Ready</div>
+                                <div class="highlight-text">Your solar farm requires minimal oversight while generating steady income. The professional O&M team handles everything while you enjoy financial security.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card slide-in-right">
+                    <div class="card-content">
+                        <h3 class="card-title">Your Options</h3>
+                        <p class="card-text"><strong>Keep for Income:</strong> Continue collecting $43,000+ annually for another 10-15 years. Perfect supplement to Social Security and retirement savings.</p>
+                        <p class="card-text"><strong>Sell for Capital:</strong> Your debt-free solar farm is worth $2.2-2.8 million to infrastructure investors seeking steady returns.</p>
+                        <div class="card-highlight">
+                            <div class="highlight-content">
+                                <div class="highlight-title">Legacy Asset</div>
+                                <div class="highlight-text">This becomes a family asset—infrastructure that generates income for decades while requiring minimal oversight. True generational wealth building.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Retirement Planning -->
+    <section class="section retirement" data-section="retirement" data-year="retirement">
+        <div class="container">
+            <div class="fade-in">
+                <div class="phase-header">
+                    <div class="phase-badge">2045</div>
+                    <h2 class="phase-title">Your Retirement Reality</h2>
+                    <p class="phase-emotion">You're 65 years old in 2045. Social Security and savings cover the basics, but what about healthcare, home maintenance, and enjoying your golden years?</p>
+                </div>
+
+                <div class="floating-card">
+                    <h3 style="font-size: 2rem; margin-bottom: 40px; text-align: center; color: var(--charcoal);">🌞 What Your $43,000 Annual Solar Income Covers</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                        <div style="background: rgba(251, 191, 36, 0.1); padding: 30px; border-radius: 20px; text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 800; color: var(--amber); margin-bottom: 10px;">$22,000</div>
+                            <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; color: var(--charcoal);">Healthcare Supplements</div>
+                            <div style="font-size: 0.95rem; color: var(--slate);">Medicare gaps, dental, vision, prescription drugs, long-term care insurance</div>
+                        </div>
+                        <div style="background: rgba(16, 185, 129, 0.1); padding: 30px; border-radius: 20px; text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 800; color: var(--emerald); margin-bottom: 10px;">$15,000</div>
+                            <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; color: var(--charcoal);">Home & Property</div>
+                            <div style="font-size: 0.95rem; color: var(--slate);">Repairs, lawn care, cleaning services, accessibility modifications</div>
+                        </div>
+                        <div style="background: rgba(37, 99, 235, 0.1); padding: 30px; border-radius: 20px; text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 800; color: var(--royal-blue); margin-bottom: 10px;">$6,000</div>
+                            <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; color: var(--charcoal);">Quality of Life</div>
+                            <div style="font-size: 0.95rem; color: var(--slate);">Travel, dining, hobbies, entertainment, gifts for grandchildren</div>
+                        </div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.1)); border: 2px solid var(--amber); border-radius: 25px; padding: 40px; text-align: center;">
+                        <p style="font-size: 1.3rem; line-height: 1.7; color: var(--charcoal); font-weight: 500;">
+                            Your solar income completely covers supplemental healthcare costs <strong>plus</strong> home maintenance <strong>plus</strong> quality of life expenses. This isn't just extra money—it's the difference between comfortable retirement and financial stress.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section cta" data-section="cta">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2 class="cta-title">Your Journey Starts Today</h2>
+                <p class="cta-description">In 25 years, you'll either own income-generating infrastructure or wish you had started building it today. The choice—and the timing—is yours.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:contact@solarcicero.com" class="cta-button">
+                        🚀 Start Your Journey
+                    </a>
+                    <a href="#" class="cta-button secondary" onclick="window.print()">
+                        📊 Download Guide
+                    </a>
+                </div>
+
+                <div style="margin-top: 80px; padding: 60px; background: rgba(255,255,255,0.1); backdrop-filter: blur(30px); border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <p style="font-size: 1.2rem; opacity: 0.95; line-height: 1.8; text-align: center;">
+                        <strong>Investment Reality:</strong> This is infrastructure investing, not speculation. You're building ownership in income-generating assets through patient capital, government support, and professional management. The timeline is long, but the destination is financial independence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressFill = document.querySelector('.progress-fill');
+            const progressYear = document.querySelector('.progress-year');
+            const dataBubble = document.getElementById('dataBubble');
+            const sections = document.querySelectorAll('.section[data-section]');
+            const milestones = document.querySelectorAll('.milestone');
+            
+            // Phase data for progress tracking
+            const phaseData = {
+                'hero': {
+                    year: 'Getting Started',
+                    progress: 0,
+                    phase: 'Planning Phase',
+                    ownership: '0%',
+                    equity: '$0',
+                    revenue: '$0',
+                    pocket: '$0',
+                    protection: 'Research',
+                    insight: 'Beginning your journey to energy independence and retirement security through smart infrastructure investing.'
+                },
+                'protected': {
+                    year: 'Years 1-6',
+                    progress: 24,
+                    phase: 'Protected Growth',
+                    ownership: '30%',
+                    equity: '$360K',
+                    revenue: '$55K',
+                    pocket: '$0',
+                    protection: 'Tax Credits',
+                    insight: 'Government incentives cover your payment gaps while you build substantial equity. This is wealth creation with training wheels.'
+                },
+                'building': {
+                    year: 'Years 7-17',
+                    progress: 68,
+                    phase: 'Building Equity',
+                    ownership: '85%',
+                    equity: '$1.02M',
+                    revenue: '$55K',
+                    pocket: '$52K/yr',
+                    protection: 'Building',
+                    insight: 'The patience phase. Each payment builds your ownership stake in valuable infrastructure that will support your retirement.'
+                },
+                'breakeven': {
+                    year: 'Years 18-20',
+                    progress: 80,
+                    phase: 'Break-Even',
+                    ownership: '95%',
+                    equity: '$1.5M',
+                    revenue: '$55K',
+                    pocket: '$20K/yr',
+                    protection: 'Break-Even',
+                    insight: 'Your ownership revenue finally exceeds interest costs. The investment works exactly as designed—patience pays off.'
+                },
+                'profit': {
+                    year: 'Years 21-25',
+                    progress: 100,
+                    phase: 'Pure Profit',
+                    ownership: '100%',
+                    equity: '$2.0M',
+                    revenue: '$55K',
+                    pocket: '$0',
+                    protection: 'Pure Profit',
+                    insight: '$43,000 annual profit from debt-free infrastructure. This is true financial freedom and retirement security.'
+                },
+                'retirement': {
+                    year: '2045',
+                    progress: 100,
+                    phase: 'Golden Years',
+                    ownership: '100%',
+                    equity: '$2.8M',
+                    revenue: '$55K',
+                    pocket: '$0',
+                    protection: 'Legacy',
+                    insight: 'Keep for steady income or sell for capital. Your choice based on retirement needs and family goals.'
+                },
+                'cta': {
+                    year: 'Today',
+                    progress: 0,
+                    phase: 'Decision Time',
+                    ownership: '0%',
+                    equity: '$0',
+                    revenue: '$0',
+                    pocket: '$0',
+                    protection: 'Begin',
+                    insight: 'The journey to financial independence starts with a single decision. Your future self will thank you.'
+                }
+            };
+
+            // Update progress display
+            function updateProgress(sectionKey) {
+                const data = phaseData[sectionKey];
+                if (!data) return;
+
+                // Update progress bar with smooth animation
+                setTimeout(() => {
+                    progressFill.style.width = data.progress + '%';
+                }, 100);
+                
+                progressYear.textContent = data.year;
+
+                // Update milestone states
+                const yearNum = data.year.includes('Years') ? parseInt(data.year.split(' ')[1]) : 
+                               data.year === '2045' ? 25 : 0;
+                
+                milestones.forEach((milestone, index) => {
+                    const milestoneYear = parseInt(milestone.dataset.year);
+                    milestone.classList.remove('completed', 'active');
+                    
+                    if (yearNum >= milestoneYear) {
+                        milestone.classList.add('completed');
+                    }
+                    
+                    if ((yearNum >= milestoneYear && yearNum < (milestones[index + 1]?.dataset.year || 100)) ||
+                        (sectionKey === 'profit' && index === 3) ||
+                        (sectionKey === 'retirement' && index === 4)) {
+                        milestone.classList.add('active');
+                    }
+                });
+
+                // Update data bubble
+                const bubbleYear = dataBubble.querySelector('.bubble-year');
+                const bubblePhase = dataBubble.querySelector('.bubble-phase');
+                const metrics = dataBubble.querySelectorAll('.bubble-metric .metric-value');
+                const insightText = dataBubble.querySelector('.insight-text');
+
+                bubbleYear.textContent = data.year;
+                bubblePhase.textContent = data.phase;
+                
+                if (metrics.length >= 5) {
+                    metrics[0].textContent = data.ownership;
+                    metrics[1].textContent = data.equity;
+                    metrics[2].textContent = data.revenue;
+                    metrics[3].textContent = data.pocket;
+                    metrics[4].textContent = data.protection;
+                }
+                
+                insightText.textContent = data.insight;
+
+                // Show/hide bubble with better timing
+                setTimeout(() => {
+                    if (['protected', 'building', 'breakeven', 'profit', 'retirement'].includes(sectionKey)) {
+                        dataBubble.classList.add('visible');
+                    } else {
+                        dataBubble.classList.remove('visible');
+                    }
+                }, 200);
+            }
+
+            // Enhanced Intersection Observer for sections
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const section = entry.target;
+                        const sectionKey = section.dataset.section;
+                        
+                        // Add visible class for gradient effects
+                        section.classList.add('visible');
+                        
+                        // Update progress
+                        updateProgress(sectionKey);
+                    }
+                });
+            }, { 
+                threshold: 0.3,
+                rootMargin: '-10% 0px -10% 0px'
+            });
+
+            sections.forEach(section => sectionObserver.observe(section));
+
+            // Enhanced Animation Observer with staggered timing
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100);
+                    }
+                });
+            }, { 
+                threshold: 0.15, 
+                rootMargin: '0px 0px -100px 0px' 
+            });
+
+            // Observe all animated elements
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .floating-card, .content-card').forEach(el => {
+                animationObserver.observe(el);
+            });
+
+            // Milestone clicks for navigation
+            milestones.forEach((milestone, index) => {
+                milestone.addEventListener('click', () => {
+                    const targetSections = ['protected', 'building', 'breakeven', 'profit', 'retirement'];
+                    const targetSection = document.querySelector(`[data-section="${targetSections[index]}"]`);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            });
+
+            // Smooth parallax effects with better performance
+            let ticking = false;
+            function updateParallax() {
+                const scrolled = window.pageYOffset;
+                const sections = document.querySelectorAll('.section');
+                
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    const speed = 0.02;
+                    const yPos = scrolled * speed;
+                    
+                    if (section.querySelector('::before')) {
+                        section.style.setProperty('--parallax-y', `${yPos}px`);
+                    }
+                });
+                
+                ticking = false;
+            }
+
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', requestTick, { passive: true });
+
+            // Initialize
+            updateProgress('hero');
+            
+            // Add initial visible class to hero
+            document.querySelector('.section.hero').classList.add('visible');
+        });
+    </script>
+</body>
+</html> 
