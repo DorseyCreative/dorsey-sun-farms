@@ -698,35 +698,154 @@
             </div>
 
             <div class="tax-benefits fade-in">
-                <div class="tax-title">🎯 Federal Tax Benefits: $445,000 Total</div>
-                <p style="margin-bottom: 30px; opacity: 0.9;">The combination of ITC and MACRS depreciation creates massive tax advantages in your first few years.</p>
+                <div class="tax-title">🎯 Total Tax Benefits: $596,000</div>
+                <p style="margin-bottom: 30px; opacity: 0.9;">Multiple federal programs combine to create massive first-year tax advantages.</p>
                 
                 <div class="tax-grid">
                     <div class="tax-item">
                         <span class="tax-value">30%</span>
-                        <div class="tax-label">Investment Tax Credit</div>
+                        <div class="tax-label">Investment Tax Credit (ITC)</div>
                         <div class="tax-description">$360K immediate credit on $1.2M system</div>
                     </div>
                     <div class="tax-item">
                         <span class="tax-value">40%</span>
                         <div class="tax-label">Bonus Depreciation (2025)</div>
-                        <div class="tax-description">$408K first-year deduction</div>
+                        <div class="tax-description">$340K first-year deduction</div>
                     </div>
                     <div class="tax-item">
-                        <span class="tax-value">85%</span>
-                        <div class="tax-label">MACRS Depreciable Basis</div>
-                        <div class="tax-description">$1.02M total depreciable over 5 years</div>
+                        <span class="tax-value">$71K</span>
+                        <div class="tax-label">Depreciation Tax Savings</div>
+                        <div class="tax-description">21% tax rate on $340K deduction</div>
                     </div>
                     <div class="tax-item">
-                        <span class="tax-value">$85K</span>
-                        <div class="tax-label">Tax Savings (21% rate)</div>
-                        <div class="tax-description">Federal depreciation benefits</div>
+                        <span class="tax-value">50%</span>
+                        <div class="tax-label">USDA REAP Grant</div>
+                        <div class="tax-description">Up to $600K grant for rural projects</div>
                     </div>
                 </div>
                 
-                <p style="margin-top: 25px; font-weight: 600;">
-                    <strong>Year 1 Impact:</strong> $360K ITC + $85K depreciation savings = $445K in federal tax benefits
+                <p style="margin-top: 25px; font-weight: 600; line-height: 1.6;">
+                    <strong>Year 1 Combined Benefits:</strong> $360K ITC + $71K depreciation savings + $600K REAP grant = $1.03M in benefits on $1.2M system
                 </p>
+                
+                <div style="background: rgba(16, 185, 129, 0.1); border-radius: 16px; padding: 20px; margin-top: 20px;">
+                    <p style="font-size: 0.95rem; margin: 0; font-weight: 600; color: var(--emerald);">
+                        <strong>Net Project Cost:</strong> With maximum incentives, your actual cost could be as low as $170,000 on a $1.2M system
+                    </p>
+                </div>
+
+                <button class="cost-breakdown-btn" onclick="showCostBreakdown()" style="background: linear-gradient(135deg, var(--royal), var(--electric)); color: white; border: none; padding: 15px 30px; border-radius: 12px; font-weight: 600; margin-top: 25px; cursor: pointer; font-size: 1rem;">
+                    📊 View Detailed Cost Breakdown
+                </button>
+            </div>
+
+            <!-- Cost Breakdown Modal -->
+            <div id="costBreakdownModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 10000; backdrop-filter: blur(10px);">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--silver); border-radius: 24px; padding: 40px; max-width: 900px; width: 90%; max-height: 90%; overflow-y: auto; box-shadow: 0 30px 80px rgba(0,0,0,0.3);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 20px;">
+                        <h2 style="font-size: 1.8rem; font-weight: 700; color: var(--charcoal); margin: 0;">Solar Farm Cost Breakdown</h2>
+                        <button onclick="hideCostBreakdown()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--slate);">✕</button>
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--charcoal); margin-bottom: 20px; font-size: 1.3rem;">📋 Project Components (1.2MW System)</h3>
+                        <div style="display: grid; gap: 15px;">
+                            <div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(251,191,36,0.1); border-radius: 8px;">
+                                <span><strong>Solar Panels</strong> (3,000 × 400W panels)</span>
+                                <span style="font-weight: 600;">$360,000</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(37,99,235,0.1); border-radius: 8px;">
+                                <span><strong>Inverters</strong> (String inverters: SMA Sunny Central)</span>
+                                <span style="font-weight: 600;">$120,000</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(16,185,129,0.1); border-radius: 8px;">
+                                <span><strong>Mounting System</strong> (Ground-mount racking)</span>
+                                <span style="font-weight: 600;">$180,000</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(245,158,11,0.1); border-radius: 8px;">
+                                <span><strong>Electrical & Installation</strong> (DC/AC wiring, transformers)</span>
+                                <span style="font-weight: 600;">$240,000</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(239,68,68,0.1); border-radius: 8px;">
+                                <span><strong>Development & Soft Costs</strong> (Permits, engineering, legal)</span>
+                                <span style="font-weight: 600;">$180,000</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(156,163,175,0.2); border-radius: 8px;">
+                                <span><strong>Grid Connection</strong> (Interconnection equipment)</span>
+                                <span style="font-weight: 600;">$120,000</span>
+                            </div>
+                            <div style="border-top: 2px solid var(--charcoal); margin-top: 15px; padding-top: 15px; display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700;">
+                                <span>Total Project Cost</span>
+                                <span>$1,200,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--charcoal); margin-bottom: 20px; font-size: 1.3rem;">💰 Out-of-Pocket Calculation (Years 7-20)</h3>
+                        <div style="background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(245,158,11,0.1)); padding: 25px; border-radius: 16px;">
+                            <div style="display: grid; gap: 12px; margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Annual loan payment (20-year term)</span>
+                                    <span style="font-weight: 600;">$107,000</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Annual solar revenue</span>
+                                    <span style="font-weight: 600; color: var(--emerald);">-$55,000</span>
+                                </div>
+                                <div style="border-top: 1px solid var(--slate); padding-top: 12px; display: flex; justify-content: space-between; font-weight: 700;">
+                                    <span>Annual out-of-pocket (Years 7-20)</span>
+                                    <span style="color: var(--coral);">$52,000</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-top: 15px; font-size: 1.1rem; font-weight: 700; color: var(--charcoal);">
+                                    <span>Total out-of-pocket (14 years × $52K)</span>
+                                    <span style="color: var(--coral);">$728,000</span>
+                                </div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.8); padding: 20px; border-radius: 12px; margin-top: 20px;">
+                                <p style="font-size: 0.95rem; margin: 0; line-height: 1.6; color: var(--charcoal);">
+                                    <strong>Reality Check:</strong> While Years 1-6 are covered by tax incentives, you'll contribute $52,000 annually from Years 7-20. This builds $1.2M in equity while paying $728K out-of-pocket—a net gain of $472K plus debt-free ownership.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 style="color: var(--charcoal); margin-bottom: 20px; font-size: 1.3rem;">🔧 Real Equipment Specifications</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                            <div style="background: rgba(251,191,36,0.1); padding: 20px; border-radius: 12px;">
+                                <h4 style="color: var(--amber); margin-bottom: 10px;">Solar Panels</h4>
+                                <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                    <strong>Model:</strong> Canadian Solar CS3W-400MS<br>
+                                    <strong>Power:</strong> 400W per panel<br>
+                                    <strong>Efficiency:</strong> 20.9%<br>
+                                    <strong>Warranty:</strong> 25 years<br>
+                                    <strong>Cost:</strong> $120/panel × 3,000 panels
+                                </p>
+                            </div>
+                            <div style="background: rgba(37,99,235,0.1); padding: 20px; border-radius: 12px;">
+                                <h4 style="color: var(--royal); margin-bottom: 10px;">Inverters</h4>
+                                <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                    <strong>Model:</strong> SMA Sunny Central 800CP XT<br>
+                                    <strong>Capacity:</strong> 800kW central inverter<br>
+                                    <strong>Efficiency:</strong> 98.8%<br>
+                                    <strong>Warranty:</strong> 20 years<br>
+                                    <strong>Cost:</strong> $80,000 per unit (1.5 units)
+                                </p>
+                            </div>
+                            <div style="background: rgba(16,185,129,0.1); padding: 20px; border-radius: 12px;">
+                                <h4 style="color: var(--emerald); margin-bottom: 10px;">Mounting</h4>
+                                <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                    <strong>System:</strong> GameChange Solar Genius Tracker<br>
+                                    <strong>Type:</strong> Single-axis tracking<br>
+                                    <strong>Material:</strong> Galvanized steel<br>
+                                    <strong>Warranty:</strong> 20 years structural<br>
+                                    <strong>Cost:</strong> $0.06/W installed
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="two-column fade-in">
@@ -758,6 +877,11 @@
                 <p>ITC protection ends around Year 6. Now you're contributing roughly $52,000 annually ($107K payment minus $55K revenue). This feels significant—like a second mortgage payment.</p>
                 
                 <p>But here's what's actually happening: every dollar builds your ownership stake. By Year 10, you own 55%. By Year 15, you own 85%. You're buying yourself out of debt.</p>
+
+                <div class="highlight-box">
+                    <div class="highlight-title">Total Out-of-Pocket Reality</div>
+                    <div class="highlight-text">Years 7-20: $52,000 × 14 years = $728,000 total out-of-pocket. But you're building $1.2M in equity, creating a net wealth gain of $472,000 plus debt-free ownership for life.</div>
+                </div>
 
                 <div class="timeline-box">
                     <div class="timeline-title">📈 Ownership Timeline: 20-Year Loan</div>
@@ -951,6 +1075,25 @@
     </section>
 
     <script>
+        // Cost Breakdown Modal Functions
+        function showCostBreakdown() {
+            document.getElementById('costBreakdownModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideCostBreakdown() {
+            document.getElementById('costBreakdownModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(e) {
+            const modal = document.getElementById('costBreakdownModal');
+            if (e.target === modal) {
+                hideCostBreakdown();
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             const progressFill = document.querySelector('.progress-fill');
             const progressYear = document.querySelector('.progress-year');
