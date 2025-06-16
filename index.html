@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Farm Investment Journey - Own Your Energy Future</title>
+    <title>Solar Farm Investment Journey - Stop Paying Rent to the Electric Company</title>
     <style>
         * {
             margin: 0;
@@ -219,6 +219,16 @@
             background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
         }
 
+        .journey {
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--midnight) 100%);
+            color: var(--silver);
+        }
+
+        .journey::before {
+            background: radial-gradient(circle at 40% 60%, rgba(37, 99, 235, 0.25) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 60%);
+        }
+
         .outcome {
             background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
         }
@@ -318,6 +328,7 @@
         }
 
         .timeline .section-title,
+        .journey .section-title,
         .resources .section-title,
         .cta .section-title {
             color: var(--silver);
@@ -577,7 +588,177 @@
             color: var(--gold);
         }
 
-        /* Resources Section */
+        /* Expandable Content */
+        .expandable {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin: 15px 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .expandable-header {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .expandable-header:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .expandable-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .expandable-arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .expandable.open .expandable-arrow {
+            transform: rotate(180deg);
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .expandable.open .expandable-content {
+            max-height: 1000px;
+        }
+
+        .expandable-inner {
+            padding: 20px;
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid var(--emerald);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+
+        .contact-name {
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-specialty {
+            font-size: 0.85rem;
+            color: var(--mist);
+            margin-bottom: 8px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            background: linear-gradient(135deg, var(--royal), var(--electric));
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .contact-link.email {
+            background: linear-gradient(135deg, var(--emerald), #059669);
+        }
+
+        .contact-link.website {
+            background: linear-gradient(135deg, var(--amber), var(--gold));
+            color: var(--midnight);
+        }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .summary-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .summary-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .summary-desc {
+            font-size: 0.9rem;
+            color: var(--mist);
+            margin-bottom: 15px;
+        }
+
+        .summary-button {
+            background: linear-gradient(135deg, var(--royal), var(--electric));
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .summary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1028,45 +1209,67 @@
             </div>
 
             <div class="pathway-grid fade-in">
-                <div class="pathway-card">
-                    <span class="pathway-icon">🌾</span>
-                    <h3 class="pathway-title">Maximum Incentives</h3>
-                    <div class="pathway-investment zero">$0</div>
-                    <p class="pathway-description">Rural agricultural producers or rural small businesses qualify for the full suite of federal programs.</p>
-                    <div class="pathway-details">
-                        <strong>Programs:</strong> 30% ITC + MACRS + 50% REAP Grant<br>
-                        <strong>Total Benefits:</strong> $1.195M covers entire project<br>
-                        <strong>Qualification:</strong> Rural location + business entity
+                <div class="pathway-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(255, 255, 255, 0.95)); border: 2px solid var(--emerald); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--emerald), #10b981);"></div>
+                    <div style="position: absolute; top: 15px; right: 15px; background: var(--emerald); color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700;">BEST VALUE</div>
+                    <span class="pathway-icon" style="font-size: 3.5rem; margin-bottom: 20px;">🌾</span>
+                    <h3 class="pathway-title" style="color: var(--emerald); font-size: 1.6rem;">Maximum Incentives</h3>
+                    <div class="pathway-investment zero" style="font-size: 3rem; margin: 20px 0; text-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);">$0</div>
+                    <div style="background: var(--emerald); color: white; padding: 8px 16px; border-radius: 20px; font-weight: 700; margin: 15px 0; font-size: 0.9rem;">100% Government Funded</div>
+                    <p class="pathway-description" style="font-size: 1rem; line-height: 1.7; margin-bottom: 20px;">Rural agricultural producers or rural small businesses qualify for the full suite of federal programs.</p>
+                    <div class="pathway-details" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); border: 1px solid rgba(16, 185, 129, 0.3); padding: 20px;">
+                        <div style="display: grid; gap: 12px;">
+                            <div><strong style="color: var(--emerald);">Programs:</strong> 30% ITC + MACRS + 50% REAP Grant</div>
+                            <div><strong style="color: var(--emerald);">Total Benefits:</strong> $1.195M covers entire project</div>
+                            <div><strong style="color: var(--emerald);">Qualification:</strong> Rural location + business entity</div>
+                            <div style="margin-top: 15px; padding: 12px; background: rgba(16, 185, 129, 0.1); border-radius: 8px; text-align: center;">
+                                <strong style="color: var(--emerald);">Result: $1.8M+ net wealth created</strong>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="pathway-card">
-                    <span class="pathway-icon">🏢</span>
-                    <h3 class="pathway-title">Moderate Incentives</h3>
-                    <div class="pathway-investment medium">$468K</div>
-                    <p class="pathway-description">Urban businesses or those who don't qualify for REAP can still access substantial federal tax benefits.</p>
-                    <div class="pathway-details">
-                        <strong>Programs:</strong> 30% ITC + MACRS Depreciation<br>
-                        <strong>Total Benefits:</strong> $595K (covers first 11 years)<br>
-                        <strong>Out-of-pocket:</strong> Years 12-20 only
+                <div class="pathway-card" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.05), rgba(255, 255, 255, 0.95)); border: 2px solid var(--amber);">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--amber), var(--gold));"></div>
+                    <span class="pathway-icon" style="font-size: 3.5rem; margin-bottom: 20px;">🏢</span>
+                    <h3 class="pathway-title" style="color: var(--amber); font-size: 1.6rem;">Moderate Incentives</h3>
+                    <div class="pathway-investment medium" style="font-size: 3rem; margin: 20px 0; text-shadow: 0 2px 4px rgba(251, 191, 36, 0.3);">$468K</div>
+                    <div style="background: var(--amber); color: var(--midnight); padding: 8px 16px; border-radius: 20px; font-weight: 700; margin: 15px 0; font-size: 0.9rem;">Partial Government Support</div>
+                    <p class="pathway-description" style="font-size: 1rem; line-height: 1.7; margin-bottom: 20px;">Urban businesses or those who don't qualify for REAP can still access substantial federal tax benefits.</p>
+                    <div class="pathway-details" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(251, 191, 36, 0.05)); border: 1px solid rgba(251, 191, 36, 0.3); padding: 20px;">
+                        <div style="display: grid; gap: 12px;">
+                            <div><strong style="color: var(--amber);">Programs:</strong> 30% ITC + MACRS Depreciation</div>
+                            <div><strong style="color: var(--amber);">Total Benefits:</strong> $595K (covers first 11 years)</div>
+                            <div><strong style="color: var(--amber);">Out-of-pocket:</strong> Years 12-20 only</div>
+                            <div style="margin-top: 15px; padding: 12px; background: rgba(251, 191, 36, 0.1); border-radius: 8px; text-align: center;">
+                                <strong style="color: var(--amber);">Result: $1.33M net wealth created</strong>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="pathway-card">
-                    <span class="pathway-icon">💼</span>
-                    <h3 class="pathway-title">Minimum Incentives</h3>
-                    <div class="pathway-investment high">$728K</div>
-                    <p class="pathway-description">Conservative scenario using only the Investment Tax Credit with no additional depreciation benefits.</p>
-                    <div class="pathway-details">
-                        <strong>Programs:</strong> 30% ITC only<br>
-                        <strong>Total Benefits:</strong> $360K (covers first 6 years)<br>
-                        <strong>Out-of-pocket:</strong> Years 7-20
+                <div class="pathway-card" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(255, 255, 255, 0.95)); border: 2px solid var(--coral);">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--coral), #f97316);"></div>
+                    <span class="pathway-icon" style="font-size: 3.5rem; margin-bottom: 20px;">💼</span>
+                    <h3 class="pathway-title" style="color: var(--coral); font-size: 1.6rem;">Minimum Incentives</h3>
+                    <div class="pathway-investment high" style="font-size: 3rem; margin: 20px 0; text-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);">$728K</div>
+                    <div style="background: var(--coral); color: white; padding: 8px 16px; border-radius: 20px; font-weight: 700; margin: 15px 0; font-size: 0.9rem;">Conservative Approach</div>
+                    <p class="pathway-description" style="font-size: 1rem; line-height: 1.7; margin-bottom: 20px;">Conservative scenario using only the Investment Tax Credit with no additional depreciation benefits.</p>
+                    <div class="pathway-details" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05)); border: 1px solid rgba(239, 68, 68, 0.3); padding: 20px;">
+                        <div style="display: grid; gap: 12px;">
+                            <div><strong style="color: var(--coral);">Programs:</strong> 30% ITC only</div>
+                            <div><strong style="color: var(--coral);">Total Benefits:</strong> $360K (covers first 6 years)</div>
+                            <div><strong style="color: var(--coral);">Out-of-pocket:</strong> Years 7-20</div>
+                            <div style="margin-top: 15px; padding: 12px; background: rgba(239, 68, 68, 0.1); border-radius: 8px; text-align: center;">
+                                <strong style="color: var(--coral);">Result: $1.07M net wealth created</strong>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 40px;">
-                <button onclick="showProgramDetails()" style="background: linear-gradient(135deg, var(--royal), var(--electric)); color: white; border: none; padding: 12px 25px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 0.95rem;">
+            <div style="text-align: center; margin-top: 50px;">
+                <button onclick="showProgramDetails()" style="background: linear-gradient(135deg, var(--royal), var(--electric)); color: white; border: none; padding: 16px 32px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 1.1rem; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3); transition: all 0.3s ease;">
                     📋 View Program Qualification Details
                 </button>
             </div>
@@ -1079,72 +1282,58 @@
             <div class="section-header fade-in">
                 <div class="section-badge">Money Flow</div>
                 <h2 class="section-title">How Your Money Moves</h2>
-                <p class="section-subtitle">See exactly where government benefits go and how loans get paid</p>
+                <p class="section-subtitle">Government benefits cover the gap between revenue and payments</p>
             </div>
 
             <div class="cashflow-container fade-in">
-                <div class="flow-diagram">
-                    <div class="flow-title">Year 1: Government Benefits Received</div>
-                    <div class="flow-boxes">
-                        <div class="flow-box programs">
-                            <div class="flow-amount positive">$360K-1.195M</div>
-                            <div class="flow-label">Government Benefits</div>
-                        </div>
-                        <div class="flow-box revenue">
-                            <div class="flow-amount positive">$55K</div>
-                            <div class="flow-label">Annual Solar Revenue</div>
-                        </div>
-                        <div class="flow-box loans">
-                            <div class="flow-amount negative">$107K</div>
-                            <div class="flow-label">Annual Loan Payment</div>
-                        </div>
+                <!-- Simple Overview -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0;">
+                    <div style="background: rgba(16, 185, 129, 0.1); border-radius: 16px; padding: 25px; text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--emerald); margin-bottom: 8px;">$55K</div>
+                        <div style="font-size: 1rem; color: var(--charcoal); font-weight: 600;">Annual Revenue</div>
                     </div>
-                    <div class="flow-arrows">⬇️</div>
-                    <div style="background: rgba(16, 185, 129, 0.1); border-radius: 12px; padding: 20px; text-align: center;">
-                        <p style="font-weight: 700; color: var(--emerald); margin-bottom: 10px;">Government benefits are held in escrow account</p>
-                        <p style="font-size: 0.9rem; color: var(--charcoal);">Benefits automatically cover the $52K annual gap between revenue ($55K) and loan payment ($107K) until exhausted</p>
+                    <div style="background: rgba(239, 68, 68, 0.1); border-radius: 16px; padding: 25px; text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--coral); margin-bottom: 8px;">$107K</div>
+                        <div style="font-size: 1rem; color: var(--charcoal); font-weight: 600;">Annual Loan Payment</div>
+                    </div>
+                    <div style="background: rgba(251, 191, 36, 0.1); border-radius: 16px; padding: 25px; text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--amber); margin-bottom: 8px;">$52K</div>
+                        <div style="font-size: 1rem; color: var(--charcoal); font-weight: 600;">Annual Gap</div>
                     </div>
                 </div>
 
-                <div class="flow-diagram">
-                    <div class="flow-title">Years 2-20: Protection Period Management</div>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                        <div style="background: rgba(16, 185, 129, 0.1); border-radius: 12px; padding: 20px;">
-                            <h4 style="color: var(--emerald); margin-bottom: 15px;">🌾 Maximum Path (REAP)</h4>
-                            <p style="font-size: 0.9rem; margin-bottom: 10px;">$1.195M covers ALL 20 years</p>
-                            <p style="font-size: 0.8rem; color: var(--slate);">$52K × 20 years = $1.04M needed<br>Extra $155K provides safety buffer</p>
-                        </div>
-                        <div style="background: rgba(251, 191, 36, 0.1); border-radius: 12px; padding: 20px;">
-                            <h4 style="color: var(--amber); margin-bottom: 15px;">🏢 Moderate Path</h4>
-                            <p style="font-size: 0.9rem; margin-bottom: 10px;">$595K covers years 1-11</p>
-                            <p style="font-size: 0.8rem; color: var(--slate);">You pay $52K/year for years 12-20<br>Total out-of-pocket: $468K</p>
-                        </div>
-                        <div style="background: rgba(239, 68, 68, 0.1); border-radius: 12px; padding: 20px;">
-                            <h4 style="color: var(--coral); margin-bottom: 15px;">💼 Minimum Path</h4>
-                            <p style="font-size: 0.9rem; margin-bottom: 10px;">$360K covers years 1-6</p>
-                            <p style="font-size: 0.8rem; color: var(--slate);">You pay $52K/year for years 7-20<br>Total out-of-pocket: $728K</p>
-                        </div>
-                    </div>
+                <!-- Key Insight -->
+                <div style="background: rgba(16, 185, 129, 0.1); border-radius: 16px; padding: 30px; text-align: center; margin: 30px 0;">
+                    <h3 style="color: var(--emerald); margin-bottom: 15px; font-size: 1.4rem;">💡 Key Insight</h3>
+                    <p style="font-size: 1.1rem; color: var(--charcoal); line-height: 1.6;">Government benefits automatically cover the $52K annual gap until you own the farm debt-free. Your investment depends on which programs you qualify for.</p>
                 </div>
 
-                <div class="flow-diagram">
-                    <div class="flow-title">Year 21+: Debt-Free Operations</div>
-                    <div class="flow-boxes">
-                        <div class="flow-box revenue">
-                            <div class="flow-amount positive">$55K</div>
-                            <div class="flow-label">Annual Revenue</div>
-                        </div>
-                        <div class="flow-box">
-                            <div class="flow-amount negative">$12K</div>
-                            <div class="flow-label">O&M Costs</div>
-                        </div>
-                        <div class="flow-box revenue">
-                            <div class="flow-amount positive">$43K</div>
-                            <div class="flow-label">Net Profit</div>
-                        </div>
+                <!-- Expandable Details -->
+                <div class="expandable" id="cashflow-details">
+                    <div class="expandable-header" onclick="toggleExpandable('cashflow-details')">
+                        <span class="expandable-title">📊 View Detailed Cash Flow Breakdown</span>
+                        <span class="expandable-arrow">▼</span>
                     </div>
-                    <div style="background: rgba(16, 185, 129, 0.1); border-radius: 12px; padding: 20px; text-align: center; margin-top: 20px;">
-                        <p style="font-weight: 700; color: var(--emerald);">🎉 You now own $1.8M+ in debt-free solar infrastructure generating $43K annually</p>
+                    <div class="expandable-content">
+                        <div class="expandable-inner">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                                <div style="background: rgba(16, 185, 129, 0.1); border-radius: 12px; padding: 20px;">
+                                    <h4 style="color: var(--emerald); margin-bottom: 15px;">🌾 Maximum Path (REAP)</h4>
+                                    <p style="font-size: 0.9rem; margin-bottom: 10px;">$1.195M covers ALL 20 years</p>
+                                    <p style="font-size: 0.8rem; color: var(--slate);">$52K × 20 years = $1.04M needed<br>Extra $155K provides safety buffer</p>
+                                </div>
+                                <div style="background: rgba(251, 191, 36, 0.1); border-radius: 12px; padding: 20px;">
+                                    <h4 style="color: var(--amber); margin-bottom: 15px;">🏢 Moderate Path</h4>
+                                    <p style="font-size: 0.9rem; margin-bottom: 10px;">$595K covers years 1-11</p>
+                                    <p style="font-size: 0.8rem; color: var(--slate);">You pay $52K/year for years 12-20<br>Total out-of-pocket: $468K</p>
+                                </div>
+                                <div style="background: rgba(239, 68, 68, 0.1); border-radius: 12px; padding: 20px;">
+                                    <h4 style="color: var(--coral); margin-bottom: 15px;">💼 Minimum Path</h4>
+                                    <p style="font-size: 0.9rem; margin-bottom: 10px;">$360K covers years 1-6</p>
+                                    <p style="font-size: 0.8rem; color: var(--slate);">You pay $52K/year for years 7-20<br>Total out-of-pocket: $728K</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1170,6 +1359,674 @@
                     </div>
                     <div class="step-financial">
                         <div class="financial-grid">
+                            <div class="financial-item">
+                                <div class="financial-label">Maximum: Protected</div>
+                                <div class="financial-value positive">$0 needed</div>
+                            </div>
+                            <div class="financial-item">
+                                <div class="financial-label">Moderate: Protected</div>
+                                <div class="financial-value positive">$0 needed</div>
+                            </div>
+                            <div class="financial-item">
+                                <div class="financial-label">Minimum: Protected</div>
+                                <div class="financial-value positive">$0 needed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Years 7-11 -->
+                <div class="timeline-step">
+                    <div class="step-year">Years 7-11</div>
+                    <h3 class="step-title">Divergence Begins</h3>
+                    <div class="step-content">
+                        Paths start to diverge based on initial benefits received. Maximum incentives continue protection, while minimum incentives require personal investment.
+                    </div>
+                    <div class="step-financial">
+                        <div class="financial-grid">
+                            <div class="financial-item">
+                                <div class="financial-label">Maximum: Still Protected</div>
+                                <div class="financial-value positive">$0 needed</div>
+                            </div>
+                            <div class="financial-item">
+                                <div class="financial-label">Moderate: Still Protected</div>
+                                <div class="financial-value positive">$0 needed</div>
+                            </div>
+                            <div class="financial-item">
+                                <div class="financial-label">Minimum: Personal Investment</div>
+                                <div class="financial-value negative">$52K/year</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Years 12-20 -->
+                <div class="timeline-step">
+                    <div class="step-year">Years 12-20</div>
+                    <h3 class="step-title">Building to Ownership</h3>
+                    <div class="step-content">
+                        Maximum benefits continue providing protection through loan payoff. Others begin personal investment phase, but all scenarios are building toward 100% debt-free ownership.
+                    </div>
+                    <div class="step-financial">
+                        <div class="financial-grid">
+                            <div class="financial-item">
+                                <div class="financial-label">Maximum: Protected</div>
+                                <div class="financial-value positive">$0 total</div>
+                            </div>
+                            <div class="financial-item">
+                                <div class="financial-label">Moderate: Investment</div>
+                                <div class="financial-value negative">$468K total</div>
+                            </div>
+                            <div class="financial-item">
+                                <div class="financial-label">Minimum: Investment</div>
+                                <div class="financial-value negative">$728K total</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Years 21+ -->
+                <div class="timeline-step">
+                    <div class="step-year">Years 21+</div>
+                    <h3 class="step-title">Debt-Free Income</h3>
+                    <div class="step-content">
+                        All scenarios converge: you own 100% of debt-free infrastructure generating $43,000 annually in net income. Your total investment determines your overall return, but everyone reaches financial independence.
+                    </div>
+                    <div class="step-financial">
+                        <div class="financial-grid">
+                            <div class="financial-item">
+                                <div class="financial-label">All Scenarios</div>
+                                <div class="financial-value positive">$43K/year</div>
+                            </div>
+                            <div class="financial-item">
+                                <div class="financial-label">Asset Value</div>
+                                <div class="financial-value positive">$1.8M+</div>
+                            </div>
+                            <div class="financial-item">
+                                <div class="financial-label">Duration</div>
+                                <div class="financial-value neutral">15+ years</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcome Analysis -->
+    <section class="section outcome" data-section="outcome">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Financial Results</div>
+                <h2 class="section-title">25-Year Outcome Analysis</h2>
+                <p class="section-subtitle">All paths lead to wealth, but the journey varies dramatically</p>
+            </div>
+
+            <div class="outcome-summary fade-in">
+                <h3 class="outcome-title">Net Wealth Created by Scenario</h3>
+                
+                <div class="outcome-grid">
+                    <div class="outcome-item">
+                        <div class="outcome-value">$1.8M+</div>
+                        <div class="outcome-label">Maximum Incentives<br>($0 invested)</div>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="outcome-value">$1.33M</div>
+                        <div class="outcome-label">Moderate Incentives<br>($468K invested)</div>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="outcome-value">$1.07M</div>
+                        <div class="outcome-label">Minimum Incentives<br>($728K invested)</div>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(251, 191, 36, 0.05)); border-radius: 16px; padding: 25px; margin-top: 30px;">
+                    <h4 style="color: var(--emerald); margin-bottom: 12px; font-size: 1.2rem;">🎯 Key Insights</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: left;">
+                        <div>
+                            <strong>Rural Advantage:</strong> Location in rural areas (<50K population) can eliminate all personal investment through REAP grants.
+                        </div>
+                        <div>
+                            <strong>Business Structure:</strong> Operating as a business entity (LLC, Corp) is required for all tax benefits.
+                        </div>
+                        <div>
+                            <strong>Universal Outcome:</strong> Every scenario generates substantial wealth and retirement income regardless of initial investment.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="section resources" data-section="resources">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Professional Network</div>
+                <h2 class="section-title">Wisconsin Solar Farm Professionals</h2>
+                <p class="section-subtitle">Direct access to verified experts for every project phase</p>
+            </div>
+
+            <!-- Summary Overview -->
+            <div class="summary-grid fade-in">
+                <div class="summary-card">
+                    <span class="summary-icon">⚖️</span>
+                    <div class="summary-title">Legal Experts</div>
+                    <div class="summary-desc">Solar law specialists, land agreements, regulatory compliance</div>
+                    <button class="summary-button" onclick="toggleExpandable('legal')">View 5 Attorneys</button>
+                </div>
+                
+                <div class="summary-card">
+                    <span class="summary-icon">🏗️</span>
+                    <div class="summary-title">EPC Contractors</div>
+                    <div class="summary-desc">Engineering, procurement, construction management</div>
+                    <button class="summary-button" onclick="toggleExpandable('epc')">View 6 Contractors</button>
+                </div>
+                
+                <div class="summary-card">
+                    <span class="summary-icon">🌍</span>
+                    <div class="summary-title">Environmental</div>
+                    <div class="summary-desc">Site assessment, permitting, Phase I/II studies</div>
+                    <button class="summary-button" onclick="toggleExpandable('environmental')">View 4 Consultants</button>
+                </div>
+                
+                <div class="summary-card">
+                    <span class="summary-icon">💰</span>
+                    <div class="summary-title">Financing</div>
+                    <div class="summary-desc">Solar loans, REAP applications, tax equity</div>
+                    <button class="summary-button" onclick="toggleExpandable('financing')">View 4 Partners</button>
+                </div>
+            </div>
+
+            <!-- Expandable Sections -->
+            <div class="fade-in">
+                <!-- Legal Experts -->
+                <div class="expandable" id="legal">
+                    <div class="expandable-header" onclick="toggleExpandable('legal')">
+                        <span class="expandable-title">⚖️ Legal Experts - Solar & Energy Law</span>
+                        <span class="expandable-arrow">▼</span>
+                    </div>
+                    <div class="expandable-content">
+                        <div class="expandable-inner">
+                            <div class="contact-card">
+                                <div class="contact-name">Bartelt Grob (Wisconsin)</div>
+                                <div class="contact-specialty">Renewable energy projects, land rights, solar lease agreements</div>
+                                <div class="contact-links">
+                                    <a href="https://barteltgrob.com/contact/" target="_blank" class="contact-link website">🌐 Contact</a>
+                                    <a href="https://barteltgrob.com/wisconsin-real-estate-law-firm/renewable-energy-projects/" target="_blank" class="contact-link">📋 Solar Services</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">Hager Dewick & Zuengler SC</div>
+                                <div class="contact-specialty">Wisconsin solar land leases, 30-50 year agreements</div>
+                                <div class="contact-links">
+                                    <a href="https://www.hdz-law.com/contact/" target="_blank" class="contact-link website">🌐 Contact</a>
+                                    <a href="https://www.hdz-law.com/blog/solar-land-leases-in-wisconsin/" target="_blank" class="contact-link">📄 Solar Leases</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">Stinson LLP</div>
+                                <div class="contact-specialty">Solar farm agreements, interconnection, regulatory issues</div>
+                                <div class="contact-links">
+                                    <a href="https://www.stinson.com/contact" target="_blank" class="contact-link website">🌐 Contact</a>
+                                    <a href="https://www.stinson.com/capabilities-RenewableEnergy" target="_blank" class="contact-link">⚡ Renewable Energy</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">Bracewell LLP</div>
+                                <div class="contact-specialty">Wisconsin utilities portfolio deals, 1000+ MW projects</div>
+                                <div class="contact-links">
+                                    <a href="https://www.bracewell.com/practices/renewable-energy/solar/" target="_blank" class="contact-link website">🌐 Solar Practice</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">Husch Blackwell</div>
+                                <div class="contact-specialty">Solar energy law, regulatory compliance</div>
+                                <div class="contact-links">
+                                    <a href="https://www.huschblackwell.com/industries_services/solar-energy" target="_blank" class="contact-link website">🌐 Solar Energy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EPC Contractors -->
+                <div class="expandable" id="epc">
+                    <div class="expandable-header" onclick="toggleExpandable('epc')">
+                        <span class="expandable-title">🏗️ EPC Contractors - Engineering, Procurement, Construction</span>
+                        <span class="expandable-arrow">▼</span>
+                    </div>
+                    <div class="expandable-content">
+                        <div class="expandable-inner">
+                            <div class="contact-card">
+                                <div class="contact-name">All Energy Solar (Madison)</div>
+                                <div class="contact-specialty">Premier commercial solar EPC, NABCEP certified, full turnkey</div>
+                                <div class="contact-links">
+                                    <a href="https://www.allenergysolar.com/contact/" target="_blank" class="contact-link website">🌐 Contact</a>
+                                    <a href="tel:608-709-3002" class="contact-link">📞 608-709-3002</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">Full Spectrum Solar</div>
+                                <div class="contact-specialty">20+ years Wisconsin experience, UW-Madison alumni owned</div>
+                                <div class="contact-links">
+                                    <a href="https://fullspectrumsolar.com/contact/" target="_blank" class="contact-link website">🌐 Contact</a>
+                                    <a href="tel:608-467-9645" class="contact-link">📞 608-467-9645</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">SunPeak (Madison)</div>
+                                <div class="contact-specialty">Turnkey commercial solar, serves American Family Insurance, Ashley Furniture</div>
+                                <div class="contact-links">
+                                    <a href="https://www.sunpeak.com/contact/" target="_blank" class="contact-link website">🌐 Contact</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">Olson Solar Energy (Onalaska)</div>
+                                <div class="contact-specialty">Commercial structures specialist, Western Wisconsin</div>
+                                <div class="contact-links">
+                                    <a href="https://olsonsolr.com/contact/" target="_blank" class="contact-link website">🌐 Contact</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">Harvest Solar</div>
+                                <div class="contact-specialty">Construction management, Midwest expertise</div>
+                                <div class="contact-links">
+                                    <a href="https://harvestsolar.com/contact/" target="_blank" class="contact-link website">🌐 Contact</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">Energy Consultants of Wisconsin (ECW)</div>
+                                <div class="contact-specialty">30+ years experience, handles permits and utility agreements</div>
+                                <div class="contact-links">
+                                    <a href="https://www.ecwlighting.com/contact/" target="_blank" class="contact-link website">🌐 Contact</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Environmental Consultants -->
+                <div class="expandable" id="environmental">
+                    <div class="expandable-header" onclick="toggleExpandable('environmental')">
+                        <span class="expandable-title">🌍 Environmental Consultants - Permitting & Assessment</span>
+                        <span class="expandable-arrow">▼</span>
+                    </div>
+                    <div class="expandable-content">
+                        <div class="expandable-inner">
+                            <div class="contact-card">
+                                <div class="contact-name">TRC Companies (Madison)</div>
+                                <div class="contact-specialty">18MW Wisconsin solar projects, comprehensive permitting</div>
+                                <div class="contact-links">
+                                    <a href="mailto:info@trccompanies.com" class="contact-link email">📧 info@trccompanies.com</a>
+                                    <a href="https://www.trccompanies.com/offices/madison-wi-53717/" target="_blank" class="contact-link website">🌐 Madison Office</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">NRP Environmental Consultants (Green Bay)</div>
+                                <div class="contact-specialty">Renewable energy permitting, feasibility studies</div>
+                                <div class="contact-links">
+                                    <a href="mailto:NRPConsultants@gmail.com" class="contact-link email">📧 NRPConsultants@gmail.com</a>
+                                    <a href="https://nrpconsultants.com/" target="_blank" class="contact-link website">🌐 Website</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">Coulee Environmental Solutions (La Crosse)</div>
+                                <div class="contact-specialty">24 years experience, environmental site assessments</div>
+                                <div class="contact-links">
+                                    <a href="https://theosgrp.com/coulee-environmental-solutions/" target="_blank" class="contact-link website">🌐 Contact</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">REI Engineering</div>
+                                <div class="contact-specialty">Wisconsin environmental compliance, Phase I-V assessments</div>
+                                <div class="contact-links">
+                                    <a href="https://reiengineering.com/contact/" target="_blank" class="contact-link website">🌐 Contact</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financing Partners -->
+                <div class="expandable" id="financing">
+                    <div class="expandable-header" onclick="toggleExpandable('financing')">
+                        <span class="expandable-title">💰 Financing Partners - Loans, Grants, Tax Equity</span>
+                        <span class="expandable-arrow">▼</span>
+                    </div>
+                    <div class="expandable-content">
+                        <div class="expandable-inner">
+                            <div class="contact-card">
+                                <div class="contact-name">Live Oak Bank</div>
+                                <div class="contact-specialty">Utility-scale solar financing, 25-year fixed rates, nationwide</div>
+                                <div class="contact-links">
+                                    <a href="https://www.liveoak.bank/commercial/project-finance/energy/" target="_blank" class="contact-link website">🌐 Energy Finance</a>
+                                    <a href="mailto:derek.welsh@liveoak.bank" class="contact-link email">📧 Derek Welsh</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">Stearns Bank</div>
+                                <div class="contact-specialty">USDA REAP program specialist, government-guaranteed loans</div>
+                                <div class="contact-links">
+                                    <a href="https://www.stearnsbank.com/resources/blog/solar-wind-renewable-usda-reap" target="_blank" class="contact-link website">🌐 REAP Info</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">Solar United Neighbors</div>
+                                <div class="contact-specialty">REAP application guidance, step-by-step support</div>
+                                <div class="contact-links">
+                                    <a href="https://solarunitedneighbors.org/businesses/rural-energy-for-america-program/" target="_blank" class="contact-link website">🌐 REAP Guide</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-name">USDA Rural Development Wisconsin</div>
+                                <div class="contact-specialty">REAP grants up to $1M, loans up to $25M</div>
+                                <div class="contact-links">
+                                    <a href="https://www.rd.usda.gov/programs-services/energy-programs/rural-energy-america-program-renewable-energy-systems-energy-efficiency-improvement-guaranteed-loans/wi" target="_blank" class="contact-link website">🌐 Wisconsin REAP</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-buttons fade-in">
+                <a href="https://www.rd.usda.gov/programs-services/energy-programs/rural-energy-america-program-renewable-energy-systems-energy-efficiency-improvement-guaranteed-loans/wi" target="_blank" class="resource-button success">
+                    🌾 Access USDA REAP Wisconsin
+                </a>
+                <a href="https://solarunitedneighbors.org/businesses/rural-energy-for-america-program/" target="_blank" class="resource-button">
+                    📋 REAP Application Guide
+                </a>
+                <a href="https://www.renewwisconsin.org/" target="_blank" class="resource-button warning">
+                    ⚡ RENEW Wisconsin Resources
+                </a>
+                <a href="https://psc.wi.gov/" target="_blank" class="resource-button">
+                    🏛️ Wisconsin PSC Solar Info
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section cta" data-section="cta">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2 class="cta-title">Start Your Journey Today</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 25px; opacity: 0.9; line-height: 1.6;">Your path to financial independence is clear. Whether you invest $0 or $728K, you'll own income-generating infrastructure in 25 years.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:contact@solarcicero.com" class="cta-button">
+                        🚀 Determine Your Path
+                    </a>
+                    <a href="#" class="cta-button secondary" onclick="window.print()">
+                        📊 Download Analysis
+                    </a>
+                </div>
+
+                <div style="margin-top: 50px; padding: 40px 30px; background: rgba(255,255,255,0.08); backdrop-filter: blur(40px); border-radius: 24px;">
+                    <p style="font-size: 1rem; opacity: 0.95; line-height: 1.7;">
+                        <strong>Investment Reality:</strong> This is infrastructure investing with government support. Your out-of-pocket ranges from $0 to $728K based on program qualification, but all scenarios create substantial wealth through patient capital and professional management.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Details Modal -->
+    <div id="programModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Government Program Qualification</h2>
+                <button class="close-btn" onclick="hideProgramDetails()">✕</button>
+            </div>
+            
+            <div style="display: grid; gap: 25px;">
+                <!-- ITC -->
+                <div style="background: rgba(59, 130, 246, 0.1); border-radius: 12px; padding: 20px;">
+                    <h4 style="color: var(--royal); margin-bottom: 12px; font-size: 1.2rem;">🎯 Investment Tax Credit (30%)</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <strong style="color: var(--emerald);">How It Works:</strong>
+                            <p style="margin: 5px 0 12px 0; font-size: 0.9rem;">Dollar-for-dollar federal tax credit. Can be monetized immediately by selling to tax equity investors for $0.85-$0.90 per dollar.</p>
+                        </div>
+                        <div>
+                            <strong style="color: var(--royal);">Qualification:</strong>
+                            <ul style="margin: 5px 0; padding-left: 15px; font-size: 0.9rem;">
+                                <li>Business entity ownership (LLC, Corp, Partnership)</li>
+                                <li>Used for business purposes (>50% business use)</li>
+                                <li>System placed in service by 2032</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.3); padding: 12px; border-radius: 6px; margin-top: 12px; text-align: center;">
+                        <strong>Benefit: $360,000 immediate cash</strong>
+                    </div>
+                </div>
+
+                <!-- MACRS -->
+                <div style="background: rgba(251, 191, 36, 0.1); border-radius: 12px; padding: 20px;">
+                    <h4 style="color: var(--amber); margin-bottom: 12px; font-size: 1.2rem;">📈 MACRS Depreciation</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <strong style="color: var(--emerald);">How It Works:</strong>
+                            <p style="margin: 5px 0 12px 0; font-size: 0.9rem;">5-year accelerated depreciation. 2025: 40% bonus depreciation in Year 1. Depreciable basis = 85% of cost (reduced by half of ITC).</p>
+                        </div>
+                        <div>
+                            <strong style="color: var(--royal);">Qualification:</strong>
+                            <ul style="margin: 5px 0; padding-left: 15px; font-size: 0.9rem;">
+                                <li>Same as ITC requirements</li>
+                                <li>Used for income-generating activities</li>
+                                <li>Must own equipment (no leasing)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.3); padding: 12px; border-radius: 6px; margin-top: 12px; text-align: center;">
+                        <strong>Benefit: $235,000 in tax savings over 5 years</strong>
+                    </div>
+                </div>
+
+                <!-- REAP -->
+                <div style="background: rgba(16, 185, 129, 0.1); border-radius: 12px; padding: 20px;">
+                    <h4 style="color: var(--emerald); margin-bottom: 12px; font-size: 1.2rem;">🌾 USDA REAP Grant (50%)</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <strong style="color: var(--emerald);">How It Works:</strong>
+                            <p style="margin: 5px 0 12px 0; font-size: 0.9rem;">Direct grant, no repayment. Competitive application with quarterly deadlines. Can combine with ITC and MACRS.</p>
+                        </div>
+                        <div>
+                            <strong style="color: var(--royal);">Qualification:</strong>
+                            <ul style="margin: 5px 0; padding-left: 15px; font-size: 0.9rem;">
+                                <li>Rural location (population <50,000)</li>
+                                <li>Agricultural producer (50%+ ag income) OR rural small business</li>
+                                <li>51%+ business electricity use</li>
+                                <li>No outstanding federal debts</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.3); padding: 12px; border-radius: 6px; margin-top: 12px; text-align: center;">
+                        <strong>Benefit: Up to $600,000 direct grant</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Functions
+        function showProgramDetails() {
+            document.getElementById('programModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideProgramDetails() {
+            document.getElementById('programModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Expandable Functions
+        function toggleExpandable(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('open');
+        }
+
+        document.addEventListener('click', function(e) {
+            const modal = document.getElementById('programModal');
+            if (e.target === modal) {
+                hideProgramDetails();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressFill = document.querySelector('.progress-fill');
+            const progressYear = document.querySelector('.progress-year');
+            const progressPhase = document.querySelector('.progress-phase');
+            const dataToast = document.getElementById('dataToast');
+            const sections = document.querySelectorAll('.section[data-section]');
+            
+            const phaseData = {
+                'hero': {
+                    year: 'Start',
+                    progress: 0,
+                    phase: 'Planning',
+                    keyMetric: '$1.2M',
+                    metricLabel: 'System Cost'
+                },
+                'pathway': {
+                    year: 'Choose Path',
+                    progress: 15,
+                    phase: 'Qualification',
+                    keyMetric: '$0-728K',
+                    metricLabel: 'Investment Range'
+                },
+                'cashflow': {
+                    year: 'Money Flow',
+                    progress: 35,
+                    phase: 'Management',
+                    keyMetric: '$52K Gap',
+                    metricLabel: 'Annual Coverage'
+                },
+                'timeline': {
+                    year: '2-Year Build',
+                    progress: 60,
+                    phase: 'Execution',
+                    keyMetric: '25 Steps',
+                    metricLabel: 'To Success'
+                },
+                'journey': {
+                    year: '25 Years',
+                    progress: 80,
+                    phase: 'Journey',
+                    keyMetric: '$43K/yr',
+                    metricLabel: 'End Result'
+                },
+                'outcome': {
+                    year: 'Results',
+                    progress: 90,
+                    phase: 'Analysis',
+                    keyMetric: '$1.07-1.8M',
+                    metricLabel: 'Wealth Created'
+                },
+                'resources': {
+                    year: 'Connect',
+                    progress: 95,
+                    phase: 'Network',
+                    keyMetric: '100+ Partners',
+                    metricLabel: 'Industry Contacts'
+                },
+                'cta': {
+                    year: 'Today',
+                    progress: 100,
+                    phase: 'Decision',
+                    keyMetric: '3 Paths',
+                    metricLabel: 'Your Choice'
+                }
+            };
+
+            function updateProgress(sectionKey) {
+                const data = phaseData[sectionKey];
+                if (!data) return;
+
+                setTimeout(() => {
+                    progressFill.style.width = data.progress + '%';
+                }, 300);
+                
+                progressYear.textContent = data.year;
+                progressPhase.textContent = data.phase;
+
+                const toastYear = dataToast.querySelector('.toast-year');
+                const toastPhase = dataToast.querySelector('.toast-phase');
+                const metricValue = dataToast.querySelector('.metric-value');
+                const metricLabel = dataToast.querySelector('.metric-label');
+
+                toastYear.textContent = data.year;
+                toastPhase.textContent = data.phase;
+                metricValue.textContent = data.keyMetric;
+                metricLabel.textContent = data.metricLabel;
+
+                setTimeout(() => {
+                    if (['pathway', 'cashflow', 'timeline', 'journey', 'outcome', 'resources'].includes(sectionKey)) {
+                        dataToast.classList.add('visible');
+                    } else {
+                        dataToast.classList.remove('visible');
+                    }
+                }, 400);
+            }
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const section = entry.target;
+                        const sectionKey = section.dataset.section;
+                        
+                        section.classList.add('visible');
+                        updateProgress(sectionKey);
+                    }
+                });
+            }, { 
+                threshold: 0.3,
+                rootMargin: '-10% 0px -10% 0px'
+            });
+
+            sections.forEach(section => sectionObserver.observe(section));
+
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 150);
+                    }
+                });
+            }, { 
+                threshold: 0.2,
+                rootMargin: '0px 0px -30px 0px' 
+            });
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                animationObserver.observe(el);
+            });
+
+            updateProgress('hero');
+            document.querySelector('.section.hero').classList.add('visible');
+        });
+    </script>
+</body>
+</html>
                             <div class="financial-item">
                                 <div class="financial-label">Land Assessment</div>
                                 <div class="financial-value neutral">Site Survey</div>
@@ -1411,7 +2268,8 @@
         </div>
     </section>
 
-    <!-- Financial Timeline (Original) -->
+    <!-- Financial Journey Section -->
+    <section class="section journey" data-section="journey">
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-badge">25-Year Journey</div>
@@ -1454,579 +2312,3 @@
                     </div>
                     <div class="step-financial">
                         <div class="financial-grid">
-                            <div class="financial-item">
-                                <div class="financial-label">Maximum: Protected</div>
-                                <div class="financial-value positive">$0 needed</div>
-                            </div>
-                            <div class="financial-item">
-                                <div class="financial-label">Moderate: Protected</div>
-                                <div class="financial-value positive">$0 needed</div>
-                            </div>
-                            <div class="financial-item">
-                                <div class="financial-label">Minimum: Protected</div>
-                                <div class="financial-value positive">$0 needed</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Years 7-11 -->
-                <div class="timeline-step">
-                    <div class="step-year">Years 7-11</div>
-                    <h3 class="step-title">Divergence Begins</h3>
-                    <div class="step-content">
-                        Paths start to diverge based on initial benefits received. Maximum incentives continue protection, while minimum incentives require personal investment.
-                    </div>
-                    <div class="step-financial">
-                        <div class="financial-grid">
-                            <div class="financial-item">
-                                <div class="financial-label">Maximum: Still Protected</div>
-                                <div class="financial-value positive">$0 needed</div>
-                            </div>
-                            <div class="financial-item">
-                                <div class="financial-label">Moderate: Still Protected</div>
-                                <div class="financial-value positive">$0 needed</div>
-                            </div>
-                            <div class="financial-item">
-                                <div class="financial-label">Minimum: Personal Investment</div>
-                                <div class="financial-value negative">$52K/year</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Years 12-20 -->
-                <div class="timeline-step">
-                    <div class="step-year">Years 12-20</div>
-                    <h3 class="step-title">Building to Ownership</h3>
-                    <div class="step-content">
-                        Maximum benefits continue providing protection through loan payoff. Others begin personal investment phase, but all scenarios are building toward 100% debt-free ownership.
-                    </div>
-                    <div class="step-financial">
-                        <div class="financial-grid">
-                            <div class="financial-item">
-                                <div class="financial-label">Maximum: Protected</div>
-                                <div class="financial-value positive">$0 total</div>
-                            </div>
-                            <div class="financial-item">
-                                <div class="financial-label">Moderate: Investment</div>
-                                <div class="financial-value negative">$468K total</div>
-                            </div>
-                            <div class="financial-item">
-                                <div class="financial-label">Minimum: Investment</div>
-                                <div class="financial-value negative">$728K total</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Years 21+ -->
-                <div class="timeline-step">
-                    <div class="step-year">Years 21+</div>
-                    <h3 class="step-title">Debt-Free Income</h3>
-                    <div class="step-content">
-                        All scenarios converge: you own 100% of debt-free infrastructure generating $43,000 annually in net income. Your total investment determines your overall return, but everyone reaches financial independence.
-                    </div>
-                    <div class="step-financial">
-                        <div class="financial-grid">
-                            <div class="financial-item">
-                                <div class="financial-label">All Scenarios</div>
-                                <div class="financial-value positive">$43K/year</div>
-                            </div>
-                            <div class="financial-item">
-                                <div class="financial-label">Asset Value</div>
-                                <div class="financial-value positive">$1.8M+</div>
-                            </div>
-                            <div class="financial-item">
-                                <div class="financial-label">Duration</div>
-                                <div class="financial-value neutral">15+ years</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Outcome Analysis -->
-    <section class="section outcome" data-section="outcome">
-        <div class="container">
-            <div class="section-header fade-in">
-                <div class="section-badge">Financial Results</div>
-                <h2 class="section-title">25-Year Outcome Analysis</h2>
-                <p class="section-subtitle">All paths lead to wealth, but the journey varies dramatically</p>
-            </div>
-
-            <div class="outcome-summary fade-in">
-                <h3 class="outcome-title">Net Wealth Created by Scenario</h3>
-                
-                <div class="outcome-grid">
-                    <div class="outcome-item">
-                        <div class="outcome-value">$1.8M+</div>
-                        <div class="outcome-label">Maximum Incentives<br>($0 invested)</div>
-                    </div>
-                    <div class="outcome-item">
-                        <div class="outcome-value">$1.33M</div>
-                        <div class="outcome-label">Moderate Incentives<br>($468K invested)</div>
-                    </div>
-                    <div class="outcome-item">
-                        <div class="outcome-value">$1.07M</div>
-                        <div class="outcome-label">Minimum Incentives<br>($728K invested)</div>
-                    </div>
-                </div>
-
-                <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(251, 191, 36, 0.05)); border-radius: 16px; padding: 25px; margin-top: 30px;">
-                    <h4 style="color: var(--emerald); margin-bottom: 12px; font-size: 1.2rem;">🎯 Key Insights</h4>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: left;">
-                        <div>
-                            <strong>Rural Advantage:</strong> Location in rural areas (<50K population) can eliminate all personal investment through REAP grants.
-                        </div>
-                        <div>
-                            <strong>Business Structure:</strong> Operating as a business entity (LLC, Corp) is required for all tax benefits.
-                        </div>
-                        <div>
-                            <strong>Universal Outcome:</strong> Every scenario generates substantial wealth and retirement income regardless of initial investment.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resources Section -->
-    <section class="section resources" data-section="resources">
-        <div class="container">
-            <div class="section-header fade-in">
-                <div class="section-badge">Industry Resources</div>
-                <h2 class="section-title">Wisconsin Solar Farm Resources</h2>
-                <p class="section-subtitle">Connect with developers, contractors, lawyers, and success stories</p>
-            </div>
-
-            <div class="resources-grid fade-in">
-                <!-- Wisconsin Developers -->
-                <div class="resource-category">
-                    <h3 class="resource-title">🏗️ Wisconsin Solar Developers</h3>
-                    <ul class="resource-list">
-                        <li class="resource-item">
-                            <strong>Invenergy</strong>
-                            <small>Major developer active in Wisconsin, completed Badger Hollow Solar Farm (300MW)</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Savion</strong>
-                            <small>National developer with Wisconsin projects</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>NextEra Energy</strong>
-                            <small>Developed Two Creeks Solar (213MW) in Two Rivers</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Alliant Energy</strong>
-                            <small>Utility developing 12 large-scale solar projects totaling 1GW+</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Samsung</strong>
-                            <small>Active in Wisconsin utility-scale development</small>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- EPC Contractors -->
-                <div class="resource-category">
-                    <h3 class="resource-title">⚡ EPC Contractors</h3>
-                    <ul class="resource-list">
-                        <li class="resource-item">
-                            <strong>All Energy Solar (Madison)</strong>
-                            <small>Premier commercial solar EPC, NABCEP certified, full turnkey solutions</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Olson Solar Energy (Onalaska)</strong>
-                            <small>Commercial structures specialist with sustainability focus</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Midwest Solar Power</strong>
-                            <small>Design, installation, and maintenance for commercial projects</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>UVcell Solar</strong>
-                            <small>30+ years experience, US/Canada/Asia operations</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>North Wind Renewable Energy</strong>
-                            <small>Central Wisconsin, solar + storage solutions</small>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Legal Expertise -->
-                <div class="resource-category">
-                    <h3 class="resource-title">⚖️ Legal Experts</h3>
-                    <ul class="resource-list">
-                        <li class="resource-item">
-                            <strong>Bartelt Grob (Wisconsin)</strong>
-                            <small>Renewable energy projects, land rights, long-term contracts</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Stinson LLP</strong>
-                            <small>Solar farm agreements, interconnection, regulatory issues</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Bracewell LLP</strong>
-                            <small>Wisconsin utilities portfolio deals, 1000+ MW projects</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Stoel Rives LLP</strong>
-                            <small>20+ years renewable energy, tax equity financing</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Husch Blackwell</strong>
-                            <small>Solar energy law, regulatory compliance</small>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Success Stories -->
-                <div class="resource-category">
-                    <h3 class="resource-title">🌟 REAP Success Stories</h3>
-                    <ul class="resource-list">
-                        <li class="resource-item">
-                            <strong>Spencer Pope Poultry Farm</strong>
-                            <small>Mississippi farm: $20K REAP grant, 47kW system, 100% electricity coverage</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Bowman & Landes Turkey Farm</strong>
-                            <small>Ohio: 220kW solar array installation with REAP funding</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>White Oak Pastures</strong>
-                            <small>Georgia: Multi-year REAP grants for solar and efficiency upgrades</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>University of Georgia</strong>
-                            <small>$100K grant for energy audits on 1000+ poultry farms</small>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Financing Partners -->
-                <div class="resource-category">
-                    <h3 class="resource-title">💰 Financing Partners</h3>
-                    <ul class="resource-list">
-                        <li class="resource-item">
-                            <strong>Live Oak Bank</strong>
-                            <small>Utility-scale solar financing, 25-year fixed rates, nationwide</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Stearns Bank</strong>
-                            <small>USDA REAP program specialist, government-guaranteed loans</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>USDA Rural Development</strong>
-                            <small>REAP grants up to $1M, loans up to $25M</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Focus on Energy (Wisconsin)</strong>
-                            <small>State rebates and incentives for renewable energy</small>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Program Access -->
-                <div class="resource-category">
-                    <h3 class="resource-title">🔗 Program Websites</h3>
-                    <ul class="resource-list">
-                        <li class="resource-item">
-                            <strong>USDA REAP Wisconsin</strong>
-                            <small>State-specific program info and contacts</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Wisconsin Public Service Commission</strong>
-                            <small>Solar farm permitting and regulations</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>RENEW Wisconsin</strong>
-                            <small>State renewable energy advocacy and resources</small>
-                        </li>
-                        <li class="resource-item">
-                            <strong>Solar United Neighbors</strong>
-                            <small>REAP application guidance and support</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="resource-buttons fade-in">
-                <a href="https://www.rd.usda.gov/programs-services/energy-programs/rural-energy-america-program-renewable-energy-systems-energy-efficiency-improvement-guaranteed-loans/wi" target="_blank" class="resource-button success">
-                    🌾 Access USDA REAP Wisconsin
-                </a>
-                <a href="https://solarunitedneighbors.org/businesses/rural-energy-for-america-program/" target="_blank" class="resource-button">
-                    📋 REAP Application Guide
-                </a>
-                <a href="https://www.renewwisconsin.org/" target="_blank" class="resource-button warning">
-                    ⚡ RENEW Wisconsin Resources
-                </a>
-                <a href="https://psc.wi.gov/" target="_blank" class="resource-button">
-                    🏛️ Wisconsin PSC Solar Info
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="section cta" data-section="cta">
-        <div class="container">
-            <div class="cta-content fade-in">
-                <h2 class="cta-title">Start Your Journey Today</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 25px; opacity: 0.9; line-height: 1.6;">Your path to financial independence is clear. Whether you invest $0 or $728K, you'll own income-generating infrastructure in 25 years.</p>
-                
-                <div class="cta-buttons">
-                    <a href="mailto:contact@solarcicero.com" class="cta-button">
-                        🚀 Determine Your Path
-                    </a>
-                    <a href="#" class="cta-button secondary" onclick="window.print()">
-                        📊 Download Analysis
-                    </a>
-                </div>
-
-                <div style="margin-top: 50px; padding: 40px 30px; background: rgba(255,255,255,0.08); backdrop-filter: blur(40px); border-radius: 24px;">
-                    <p style="font-size: 1rem; opacity: 0.95; line-height: 1.7;">
-                        <strong>Investment Reality:</strong> This is infrastructure investing with government support. Your out-of-pocket ranges from $0 to $728K based on program qualification, but all scenarios create substantial wealth through patient capital and professional management.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Program Details Modal -->
-    <div id="programModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Government Program Qualification</h2>
-                <button class="close-btn" onclick="hideProgramDetails()">✕</button>
-            </div>
-            
-            <div style="display: grid; gap: 25px;">
-                <!-- ITC -->
-                <div style="background: rgba(59, 130, 246, 0.1); border-radius: 12px; padding: 20px;">
-                    <h4 style="color: var(--royal); margin-bottom: 12px; font-size: 1.2rem;">🎯 Investment Tax Credit (30%)</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div>
-                            <strong style="color: var(--emerald);">How It Works:</strong>
-                            <p style="margin: 5px 0 12px 0; font-size: 0.9rem;">Dollar-for-dollar federal tax credit. Can be monetized immediately by selling to tax equity investors for $0.85-$0.90 per dollar.</p>
-                        </div>
-                        <div>
-                            <strong style="color: var(--royal);">Qualification:</strong>
-                            <ul style="margin: 5px 0; padding-left: 15px; font-size: 0.9rem;">
-                                <li>Business entity ownership (LLC, Corp, Partnership)</li>
-                                <li>Used for business purposes (>50% business use)</li>
-                                <li>System placed in service by 2032</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.3); padding: 12px; border-radius: 6px; margin-top: 12px; text-align: center;">
-                        <strong>Benefit: $360,000 immediate cash</strong>
-                    </div>
-                </div>
-
-                <!-- MACRS -->
-                <div style="background: rgba(251, 191, 36, 0.1); border-radius: 12px; padding: 20px;">
-                    <h4 style="color: var(--amber); margin-bottom: 12px; font-size: 1.2rem;">📈 MACRS Depreciation</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div>
-                            <strong style="color: var(--emerald);">How It Works:</strong>
-                            <p style="margin: 5px 0 12px 0; font-size: 0.9rem;">5-year accelerated depreciation. 2025: 40% bonus depreciation in Year 1. Depreciable basis = 85% of cost (reduced by half of ITC).</p>
-                        </div>
-                        <div>
-                            <strong style="color: var(--royal);">Qualification:</strong>
-                            <ul style="margin: 5px 0; padding-left: 15px; font-size: 0.9rem;">
-                                <li>Same as ITC requirements</li>
-                                <li>Used for income-generating activities</li>
-                                <li>Must own equipment (no leasing)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.3); padding: 12px; border-radius: 6px; margin-top: 12px; text-align: center;">
-                        <strong>Benefit: $235,000 in tax savings over 5 years</strong>
-                    </div>
-                </div>
-
-                <!-- REAP -->
-                <div style="background: rgba(16, 185, 129, 0.1); border-radius: 12px; padding: 20px;">
-                    <h4 style="color: var(--emerald); margin-bottom: 12px; font-size: 1.2rem;">🌾 USDA REAP Grant (50%)</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div>
-                            <strong style="color: var(--emerald);">How It Works:</strong>
-                            <p style="margin: 5px 0 12px 0; font-size: 0.9rem;">Direct grant, no repayment. Competitive application with quarterly deadlines. Can combine with ITC and MACRS.</p>
-                        </div>
-                        <div>
-                            <strong style="color: var(--royal);">Qualification:</strong>
-                            <ul style="margin: 5px 0; padding-left: 15px; font-size: 0.9rem;">
-                                <li>Rural location (population <50,000)</li>
-                                <li>Agricultural producer (50%+ ag income) OR rural small business</li>
-                                <li>51%+ business electricity use</li>
-                                <li>No outstanding federal debts</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.3); padding: 12px; border-radius: 6px; margin-top: 12px; text-align: center;">
-                        <strong>Benefit: Up to $600,000 direct grant</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Modal Functions
-        function showProgramDetails() {
-            document.getElementById('programModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function hideProgramDetails() {
-            document.getElementById('programModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        document.addEventListener('click', function(e) {
-            const modal = document.getElementById('programModal');
-            if (e.target === modal) {
-                hideProgramDetails();
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const progressFill = document.querySelector('.progress-fill');
-            const progressYear = document.querySelector('.progress-year');
-            const progressPhase = document.querySelector('.progress-phase');
-            const dataToast = document.getElementById('dataToast');
-            const sections = document.querySelectorAll('.section[data-section]');
-            
-            const phaseData = {
-                'hero': {
-                    year: 'Start',
-                    progress: 0,
-                    phase: 'Planning',
-                    keyMetric: '$1.2M',
-                    metricLabel: 'System Cost'
-                },
-                'pathway': {
-                    year: 'Choose Path',
-                    progress: 15,
-                    phase: 'Qualification',
-                    keyMetric: '$0-728K',
-                    metricLabel: 'Investment Range'
-                },
-                'cashflow': {
-                    year: 'Money Flow',
-                    progress: 35,
-                    phase: 'Management',
-                    keyMetric: '$52K Gap',
-                    metricLabel: 'Annual Coverage'
-                },
-                'timeline': {
-                    year: '2-Year Build',
-                    progress: 60,
-                    phase: 'Execution',
-                    keyMetric: '25 Steps',
-                    metricLabel: 'To Success'
-                },
-                'journey': {
-                    year: '25 Years',
-                    progress: 80,
-                    phase: 'Journey',
-                    keyMetric: '$43K/yr',
-                    metricLabel: 'End Result'
-                },
-                'outcome': {
-                    year: 'Results',
-                    progress: 80,
-                    phase: 'Analysis',
-                    keyMetric: '$1.07-1.8M',
-                    metricLabel: 'Wealth Created'
-                },
-                'resources': {
-                    year: 'Connect',
-                    progress: 95,
-                    phase: 'Network',
-                    keyMetric: '100+ Partners',
-                    metricLabel: 'Industry Contacts'
-                },
-                'cta': {
-                    year: 'Today',
-                    progress: 100,
-                    phase: 'Decision',
-                    keyMetric: '3 Paths',
-                    metricLabel: 'Your Choice'
-                }
-            };
-
-            function updateProgress(sectionKey) {
-                const data = phaseData[sectionKey];
-                if (!data) return;
-
-                setTimeout(() => {
-                    progressFill.style.width = data.progress + '%';
-                }, 300);
-                
-                progressYear.textContent = data.year;
-                progressPhase.textContent = data.phase;
-
-                const toastYear = dataToast.querySelector('.toast-year');
-                const toastPhase = dataToast.querySelector('.toast-phase');
-                const metricValue = dataToast.querySelector('.metric-value');
-                const metricLabel = dataToast.querySelector('.metric-label');
-
-                toastYear.textContent = data.year;
-                toastPhase.textContent = data.phase;
-                metricValue.textContent = data.keyMetric;
-                metricLabel.textContent = data.metricLabel;
-
-                setTimeout(() => {
-                    if (['pathway', 'cashflow', 'timeline', 'journey', 'outcome', 'resources'].includes(sectionKey)) {
-                        dataToast.classList.add('visible');
-                    } else {
-                        dataToast.classList.remove('visible');
-                    }
-                }, 400);
-            }
-
-            const sectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const section = entry.target;
-                        const sectionKey = section.dataset.section;
-                        
-                        section.classList.add('visible');
-                        updateProgress(sectionKey);
-                    }
-                });
-            }, { 
-                threshold: 0.3,
-                rootMargin: '-10% 0px -10% 0px'
-            });
-
-            sections.forEach(section => sectionObserver.observe(section));
-
-            const animationObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('visible');
-                        }, index * 150);
-                    }
-                });
-            }, { 
-                threshold: 0.2,
-                rootMargin: '0px 0px -30px 0px' 
-            });
-
-            document.querySelectorAll('.fade-in').forEach(el => {
-                animationObserver.observe(el);
-            });
-
-            updateProgress('hero');
-            document.querySelector('.section.hero').classList.add('visible');
-        });
-    </script>
-</body>
-</html>
